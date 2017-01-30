@@ -53,24 +53,13 @@ html {
                             color: #fff;
                             text-decoration: none;
                             display:inline-block;
-                            & + ul:before {
-                                color: #fff;
-                                font: normal normal normal 14px/1 FontAwesome;
-                                content:"\f0d7";
-                                margin-left: 3px;
-                            }
-                            & + ul {
-                                display:inline-block;
-                                li {
-                                    display:none;
-                                }
-                            }
                         }
-
                     }
                 }
             }
         }
     }
-
+    #breakingnews {
+        
+    }
 }
