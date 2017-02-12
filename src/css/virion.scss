@@ -1,5 +1,7 @@
 $padding: 43px;
 
+
+
 html {
     font-family:Lato, sans-serif;
     font-size:12px;
@@ -43,8 +45,14 @@ html {
         width:100%;
         height:65px;
         z-index: 100;
+        @media screen and (max-width: 768px) {
+            height:40px;
+        }
         section {
             line-height: 65px;
+            @media screen and (max-width: 768px) {
+                line-height:40px;
+            }
             h1 {
                 display:inline-block;
                 vertical-align: middle;
@@ -58,10 +66,16 @@ html {
                     img {
                         display: inline-block;
                         vertical-align: middle;
+                        @media screen and (max-width: 768px) {
+                            height:40px;
+                        }
                     }
                     div {
                         display:inline-block;
                         vertical-align: middle;
+                        @media screen and (max-width: 1024px) {
+                            display:none;
+                        }
                     }
                 }
             }
@@ -71,16 +85,30 @@ html {
                 ul {
                     li {
                         display:inline-block;
-                        margin-left:6rem;
+                        margin-left:4rem;
                         &:first-of-type {
                             margin-left:0;
                         }
+                        @media screen and (max-width: 768px) {
+                            margin-left:0;
+                        }
                         a {
-                            font-size:16px;
+                            font-size:1.35rem;
                             text-transform: uppercase;
                             color: #fff;
                             text-decoration: none;
                             display:inline-block;
+                            padding:1rem;
+                            border-bottom:2px solid transparent;
+                            transition:border ease 0.3s;
+                            line-height: normal;
+                            @media screen and (max-width: 768px) {
+                                font-size:1.2rem;
+                                margin-left:0;
+                            }
+                            &:hover {
+                                border-bottom:2px solid #fff;
+                            }
                         }
                     }
                 }
@@ -95,6 +123,9 @@ html {
             width:100%;
             overflow: hidden;
             margin-bottom:$padding;
+            @media screen and (max-width: 1024px) {
+                height:300px;
+            }
             > img {
                 position:absolute;
                 top:50%;
@@ -131,7 +162,6 @@ html {
         }
         .articleslist {
             article {
-                width:349px;
                 width:calc((100% - ( 43px * 2)) / 3);
                 height:315px;
                 overflow: hidden;
@@ -139,8 +169,31 @@ html {
                 display:inline-block;
                 float:left;
                 margin: 0 $padding $padding 0;
-                &:nth-of-type(3n+3) {
-                    margin-right:0;
+                /* size article by screen size */
+                @media screen and (max-width: 1024px) {
+                    width:calc((100% - ( 43px )) / 2);
+                    height:250px;
+                    margin-bottom:1.3rem;
+                }
+                @media screen and (max-width: 768px) {
+                    width:100%;
+                    height:150px;
+                }
+                /* margin size by screen size */
+                @media screen and (min-width: 1024px) {
+                    &:nth-of-type(3n+3) {
+                        margin-right:0;
+                    }
+                }
+                @media screen and (min-width: 768px) and (max-width: 1024px) {
+                    &:nth-of-type(2n+2) {
+                        margin-right:0;
+                    }
+                }
+                @media screen and (max-width: 768px) {
+                    &:nth-of-type(3n+3) {
+                        margin-right:0;
+                    }
                 }
                 a {
                     display:block;
@@ -158,6 +211,7 @@ html {
                     transform:translate(-50%, -50%);
                     margin:auto;
                     z-index: -1;
+                    min-width:100%;
                 }
                 &::before {
                     top:0;
@@ -219,8 +273,10 @@ html {
         &#home {
             .articleslist {
                 article {
-                    &:nth-of-type(1n+4) {
-                        margin-bottom:0;
+                    @media screen and (min-width: 1024px) {
+                        &:nth-of-type(1n+4) {
+                            margin-bottom:0;
+                        }
                     }
                 }
             }
@@ -229,8 +285,15 @@ html {
     footer {
         background:#282133;
         padding:$padding 0;
+        @media screen and (max-width: 768px) {
+            padding:1rem 0;
+        }
         section {
             line-height: 149px;
+            @media screen and (max-width: 1024px) {
+                line-height:inherit;
+                text-align:center;
+            }
             h1 {
                 display:inline-block;
                 vertical-align: middle;
@@ -248,17 +311,27 @@ html {
                     div {
                         display:inline-block;
                         vertical-align: middle;
+                        @media screen and (max-width: 768px) {
+                            display:none;
+                        }
                     }
                 }
             }
             nav {
                 display: inline-block;
                 float:right;
+                @media screen and (max-width: 1024px) {
+                    float:none;
+                    display:block;
+                }
                 ul {
                     li {
                         display:inline-block;
                         margin-left:2rem;
                         &:first-of-type {
+                            margin-left:0;
+                        }
+                        @media screen and (max-width: 1024px) {
                             margin-left:0;
                         }
                         a {
@@ -272,6 +345,9 @@ html {
                             padding:2rem;
                             &:hover {
                                 transform:rotate(360deg);
+                            }
+                            @media screen and (max-width: 1024px) {
+                                padding:1rem;
                             }
                         }
                     }
